@@ -34,7 +34,7 @@ jobs:
       - name: Instalando dependências
         run: yarn
 
-      # instalação do playright
+      # instalação do playwright
       - name: Instalando playwright
         run: yarn playwright install
 
