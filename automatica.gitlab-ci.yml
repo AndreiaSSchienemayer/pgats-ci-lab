@@ -1,0 +1,16 @@
+stages:
+  - test
+
+e2e_tests_schedule:
+  stage: test
+  tags:
+    - windows
+  script:
+    - echo "Executando testes E2E agendados..."
+    - yarn install
+    - yarn playwright install
+    - yarn run e2e
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: always
+    - when: never
