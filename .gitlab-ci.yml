@@ -2,9 +2,7 @@ stages:
   - test
 
 e2e_tests_manual:
-  stage: test
-  tags:
-    - windows
+  stage: test    
   when: manual   # só executa quando você clicar no botão manualmente
   script:
     - echo "Iniciando testes E2E manualmente..."
@@ -13,9 +11,7 @@ e2e_tests_manual:
     - yarn run e2e
 
 e2e_tests_schedule:
-  stage: test
-  tags:
-    - windows
+  stage: test    
   script:
     - echo "Executando testes E2E agendados..."
     - yarn install
