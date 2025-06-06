@@ -1,54 +1,44 @@
 # CI de Nível 01 - Disparo manual a partir de 1 clique
 
-# nome do nosso 'pipeline'
+# Nome do nosso 'pipeline'
 name: 'Execução Manual'
 
-# regras de disparo (gatilhos/triggers)
-#gatilho de exec manual =workflow_dispatch
-
-on:
+# Regras de disparo (gatilho/triggers)
+# Gatilho de exec manual = workflow_dispatch
+on: 
   workflow_dispatch:
 
-# trabalhos/tarefas dentro do pipeline=jobs
+# Trabalhos/tarefas dentro do pipeline = jobs
 jobs:
   e2e-tests:
 
-    # maquina que o job vai executar, pode consultar em https://github.com/actions/runner-images
+    # Máquina que o job vai executar
     runs-on: ubuntu-latest
 
-    # passos do script de build
+    # Passos do script de build
     steps:
-      # clone do projeto
-      - uses: actions/checkout@v4 
+    # Clone do projeto
+    - name: Clonar projeto
+      uses: actions/checkout@v4
 
-      # instalação do node
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22.x
+    # Instalação do NodeJs
+    - name: Instalar NodeJs
+      uses: actions/setup-node@v3
+      with:
+        node-version: 22.x
 
-      # instalação do Yarn
-      - name: Instalando Yarn
-        run: npm install -g yarn
+    # Instalação do Yarn
+    - name: Instalar Yarn
+      run: npm install -g yarn
 
-      # instalação das dependências
-      - name: Instalando dependências
-        run: yarn
+    # Instalação das dependências
+    - name: Instalar dependências
+      run: yarn
 
-      # instalação do playwright
-      - name: Instalando playwright
-        run: yarn playwright install
+    # Instalação do Playwright
+    - name: Instalar Playwright
+      run: yarn playwright install
 
-      # executar os testes e2e
-      - name: Executando Testes E2E
-        run: yarn run e2e
-
-
-
-
-
-
-
-
-
-
-
+    # Executar os testes e2e
+    - name: Executar Testes E2E
+      run: yarn run e2e
