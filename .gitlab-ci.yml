@@ -2,8 +2,8 @@ stages:
   - test
 
 e2e_tests_manual:
-  stage: test    
-  image: node:18   # imagem oficial node que já tem yarn
+  stage: test
+  image: node:18 # imagem oficial node que já tem yarn
   when: manual
   script:
     - echo "Iniciando testes E2E manualmente..."
@@ -12,7 +12,7 @@ e2e_tests_manual:
     - yarn run e2e
 
 e2e_tests_schedule:
-  stage: test    
+  stage: test
   image: node:18
   script:
     - echo "Executando testes E2E agendados..."

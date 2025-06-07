@@ -12,9 +12,9 @@ name: 'Execução Agendada'
 # mês
 # dia da semana
 
-# exemplo, agendo o regressivo para rodar toda segunda-feira pela manhã as 6 horas da manhã, logo preciso configurar assim (considerando o exemplo citado): 
+# exemplo, agendo o regressivo para rodar toda segunda-feira pela manhã as 6 horas da manhã, logo preciso configurar assim (considerando o exemplo citado):
 # a b c d e
-# 0 6 * * 1 
+# 0 6 * * 1
 # https://crontab.guru/ posso usar para criar tal combinação
 
 on:
@@ -24,14 +24,13 @@ on:
 # trabalhos/tarefas dentro do pipeline=jobs
 jobs:
   e2e-tests:
-
     # maquina que o job vai executar, pode consultar em https://github.com/actions/runner-images
     runs-on: ubuntu-latest
 
     # passos do script de build
     steps:
       # clone do projeto
-      - uses: actions/checkout@v4 
+      - uses: actions/checkout@v4
 
       # instalação do node
       - uses: actions/setup-node@v4
@@ -53,6 +52,3 @@ jobs:
       # executar os testes e2e
       - name: Executando Testes E2E
         run: yarn run e2e
-
-
-

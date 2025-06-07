@@ -23,7 +23,7 @@ jobs:
 
       - name: Code linting
         run: yarn lint
-        
+
   unidade:
     runs-on: ubuntu-latest
 
